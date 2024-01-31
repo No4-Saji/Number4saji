@@ -64,17 +64,17 @@
     //テーブルの表示
     
     echo "<table>\n";
-    echo "\t<tr><th>Id</th><th>Title</th><th>Text</th><th>Create</th><th>New</th><th>button</th></tr>\n";
+    echo "\t<tr><th>Id</th><th>Title</th><th>Text</th><th>Create</th><th>Edit</th><th>button</th></tr>\n";
 //FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
     echo "\t<tr>\n";
     echo "\t\t<td>{$result['Id']}</td>\n";
     echo "\t\t<td>{$result['Title']}</td>\n";
     echo "\t\t<t><td width = '100%'>{$result['Text']}</td></t>\n";
-    echo "\t\t<td>{$result['Create']}</td>\n";
-    echo "\t\t<td>{$result['New']}</td>\n";
+    echo "\t\t<td>{$result['Newdate']}</td>\n";
+    echo "\t\t<td>{$result['Editdate']}</td>\n";
     echo "\t\t<form action= 'index.php'  method = 'post'>\n";
-    echo "\t\t\t<td><button type='submit' name='edit'>編集</button>\n<button type='submit' name='delete'>削除</button></td>\n";
+    echo "\t\t\t<td><button type='submit' name='edit'><a href=edit.php?Id=" . $result["Id"] . ">編集</a></button>\n<button type='submit' name = 'delete' ><a href=delete.php?Id=" . $result["Id"] . ">削除</a></button></td>\n";
     echo "\t\t</form>\n";
     echo "\t</tr>\n";
 }
@@ -88,11 +88,9 @@ echo "</table>\n";
             header('Location: http://localhost:8000/add.php');
             exit;
         }elseif(isset($_POST['edit'])){
-            header('Location: http://localhost:8000/edit.php');
-            exit;
+
         }elseif(isset($_POST['delete'])){
 
-            exit;
         }
 
         ?>

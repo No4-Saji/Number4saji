@@ -55,12 +55,12 @@ $password = "root";
     $Message = $_POST['Message'];
     $Title = $_POST['Title'];
     $Text = $_POST['Text'];
-    $Create = date("Y-m-d H:i:s");
-    $New = NULL;
+    $Newdate = date("Y-m-d H:i:s");
+    $Editdate = NULL;
     
-    $sql = "INSERT INTO todolist(Title, Text, Message) VALUES (:Title, :Text, :Message)";
+    $sql = "INSERT INTO todolist(Title, Text, Newdate, Message) VALUES (:Title, :Text, :Newdate, :Message)";
     $stmt = $dbh->prepare($sql);
-    $params = array(':Title' => $Title, ':Text' => $Text, ':Message' => $Message);
+    $params = array(':Title' => $Title, ':Text' => $Text, ':Newdate' => $Newdate, ':Message' => $Message);
     $stmt->execute($params);
 
     header('Location: http://localhost:8000/index.php');
