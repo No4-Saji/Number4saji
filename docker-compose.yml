@@ -28,9 +28,10 @@ services:
     # コンテナ内の環境変数を指定。環境変数を渡すとビルド時に設定してくれるDockerイメージがあるので、利用の際はDocker Hubのサイトで確認する
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: todolistsystem
+      MYSQL_DATABASE: ToDoListSystem2
+      # MYSQL_USER: root
       MYSQL_USER: root
-      MYSQL_PASSWORD:
+      MYSQL_PASSWORD: root
       TZ: "Asia/Tokyo"
 
     # 起動時のコマンド
@@ -58,4 +59,4 @@ services:
 
     # セッション情報をボリュームに設定して永続化
     volumes:
-      - ./docker/phpmyadmin/sessions:/sessions
+      - ./DockerPractice/docker/phpmyadmin/sessions:/sessions
