@@ -89,7 +89,7 @@
     //ボタンを押した際の出力
     $Result = "";
     if(isset($_POST['add'])) {
-        header('Location: http://localhost:8000/add.php');
+        header('Location: http://localhost/add.php');
         exit;
     } 
     ?>
