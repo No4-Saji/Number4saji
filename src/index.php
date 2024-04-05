@@ -1,4 +1,5 @@
 <?php
+//headerの定義
 ob_start();
 if (isset($_POST['add'])) {
     header('Location: http://localhost/add.php');
@@ -56,7 +57,6 @@ ob_end_flush();
 
 <body>
     <?php
-    ob_start();
     $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
     $User = "root";
     $Password = "root";
@@ -84,11 +84,11 @@ ob_end_flush();
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Text</th>
-                <th>Create</th>
-                <th>Edit</th>
+                <th>番号</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>作成日</th>
+                <th>更新日</th>
                 <th></th>
             </tr>
         </thead>
@@ -98,20 +98,23 @@ ob_end_flush();
             while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
                 <tr>
-                    <td><?php echo $Result['Id']
-                        ?></td>
-                    <td><?php echo $Result['Title']
-                        ?></td>
+                    <td><?php echo $Result['Id'] ?></td>
+                    <?php
+                    $Title = $Result['Title'];
+
+                    $Doc = $Result['Doc'];
+                    ?>
+                    <td width='20%'><?php echo htmlspecialchars($Title, ENT_QUOTES, 'UTF-8') ?></td>
                     <t>
-                        <td width='100%'><?php echo $Result['Doc']
-                                            ?></td>
+                        <td width='60%'><?php echo htmlspecialchars($Doc, ENT_QUOTES, 'UTF-8') ?></td>
                     </t>
-                    <td><?php echo $Result['NewDate']
-                        ?></td>
-                    <td><?php echo $Result['EditDate']
-                        ?></td>
-                    <form action='index.php' method='post'>
-                        <td><button type='submit' name='edit'><a href="edit.php?Id=<?php echo $Result["Id"] ?>">編集</a></button><button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button></td>
+                    <td><?php echo $Result['NewDate'] ?></td>
+                    <td><?php echo $Result['EditDate'] ?></td>
+                    <form action='delete.php' method='post'>
+                        <td>
+                            <button type='submit' name='edit'><a href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a></button>
+                            <button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button>
+                        </td>
                     </form>
                 </tr>
             <?php
@@ -119,10 +122,6 @@ ob_end_flush();
             ?>
         </tbody>
     </table>
-    <?php
-    //ボタンを押した際の出力
-    $Result = "";
-    ?>
 </body>
 
 </html>
