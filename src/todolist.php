@@ -1,4 +1,5 @@
 <?php
+
 //headerの定義
 ob_start();
 if (isset($_POST['add'])) {
@@ -14,7 +15,28 @@ ob_end_flush();
     <meta charset="UTF-8">
     <title>ToDoList</title>
     <style>
-        p {
+        button.add {
+            display: inline-block;
+            font-size: 12pt;
+            /* 文字サイズ */
+            text-align: center;
+            /* 文字位置   */
+            cursor: pointer;
+            /* カーソル   */
+            padding: 4px 4px;
+            line-height: 10px;
+            position: absolute;
+            right: 25px;
+        }
+
+        button:hover {
+            box-shadow: none;
+            /* カーソル時の影消去 */
+            opacity: 0.8;
+            /* カーソル時透明度 */
+        }
+
+        div.p1 {
             font-size: 40px;
             font-weight: 600;
             font-family: Century;
@@ -44,12 +66,12 @@ ob_end_flush();
         th {
             font-family: Georgia;
             color: white;
-            background: #f8b500;
+            background: gray;
         }
 
         div.border {
             border: 5px solid;
-            border-color: #000 transparent transparent transparent;
+            border-color: seagreen transparent transparent transparent;
             padding: 10px;
         }
     </style>
@@ -60,6 +82,7 @@ ob_end_flush();
     $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
     $User = "root";
     $Password = "root";
+
     //DBへの接続
     try {
         $Dbh = new PDO($Dsn, $User, $Password);
@@ -68,19 +91,24 @@ ob_end_flush();
         die();
     }
     ?>
+
     <!--タイトル-->
-    <p>TODOLIST</p>
+    <div class=p1>TODOLIST</div>
     <div class=border></div>
+
     <!--追加ボタン-->
-    <form action='index.php' method='post'>
-        <button type='submit' name='add'>追加</button>
+    <form action='todolist.php' method='post'>
+        <button type='submit' class=add name='add'>追加</button>
     </form>
     <?php
+
     //対象のテーブルを変数に格納
     $Sql = "SELECT * FROM todolist2";
     $Stmt = $Dbh->query($Sql);
     ?>
+
     <!--テーブルの表示-->
+    <br>
     <table>
         <thead>
             <tr>
@@ -93,6 +121,7 @@ ob_end_flush();
             </tr>
         </thead>
         <tbody>
+
             <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
             <?php
             while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -122,6 +151,7 @@ ob_end_flush();
             ?>
         </tbody>
     </table>
+    </br>
 </body>
 
 </html>

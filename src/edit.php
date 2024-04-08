@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
-<!--編集をするために値をDBから受け取りupdate.phpへ渡す-->
+
+<!--編集をするために値をDBから受け取りedit_do.phpへ渡す-->
 
 <head>
     <meta charset="utf-8">
     <title>EDIT</title>
     <style>
+        div.p1 {
+            font-size: 40px;
+            font-weight: 600;
+            font-family: Century;
+            color: seagreen;
+        }
+
         h2 {
             font-size: 40px;
             font-weight: 600;
@@ -15,7 +23,7 @@
 
         div.border {
             border: 5px solid;
-            border-color: #000 transparent transparent transparent;
+            border-color: seagreen transparent transparent transparent;
             padding: 2px;
         }
 
@@ -25,13 +33,14 @@
         }
 
         h3 {
-            background: #f8b500;
+            background: gray;
         }
     </style>
 </head>
 
 <body>
     <?php
+
     //DBへの接続
     try {
         $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
@@ -49,22 +58,24 @@
 
     ?>
     <div class="contact-form">
-        <h2>&nbsp;EDIT&nbsp;</h2>
+        <div class=p1>&nbsp;EDIT&nbsp;</div>
         <div class=border></div>
         <h3>
+
             <!--フォーム作成・エスケープ処理（htmlspecialchar）-->
-            <form action="update.php" method="post">
+            <form action="edit_do.php" method="post">
+                <p>&nbsp;</p>
                 <input type="hidden" name="Id" value="<?php if (!empty($Result['Id'])) echo (htmlspecialchars($Result['Id'], ENT_QUOTES, 'UTF-8')); ?>">
                 <p>
-                    <label>&nbsp;Message：</label>
+                    <label>&nbsp;メッセージ：</label>
                     <input type="text" name="Mes" size="30" value="<?php if (!empty($Result['Mes'])) echo (htmlspecialchars($Result['Mes'], ENT_QUOTES, 'UTF-8')); ?>">
                 </p>
                 <p>
-                    <label>&nbsp;Title：</label>
+                    <label>&nbsp;タイトル：</label>
                     <input type="text" name="Title" size="30" value="<?php if (!empty($Result['Title'])) echo (htmlspecialchars($Result['Title'], ENT_QUOTES, 'UTF-8')); ?>">
                 </p>
                 <p>
-                    <label>&nbsp;Text：</label>
+                    <label>&nbsp;内容：</label>
                     <input type="text" name="Doc" size="200" value="<?php if (!empty($Result['Doc'])) echo (htmlspecialchars($Result['Doc'], ENT_QUOTES, 'UTF-8')); ?>">
                 </p>
                 <input type="submit" value="編集する">
@@ -73,7 +84,7 @@
         </h3>
     </div>
 
-    <a href="index.php">投稿一覧へ</a>
+    <a href="todolist.php">投稿一覧へ</a>
 </body>
 
 </html>

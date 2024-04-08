@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <!--削除を反映させる-->
 
 <head>
@@ -9,6 +10,7 @@
 
 <body>
     <?php
+
     //DBへ接続し、削除する。
     try {
         $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
@@ -23,7 +25,7 @@
         echo 'エラーが発生しました。:' . $e->getMessage();
     }
     ?>
-    <div class=bc><button onclick="location.href='index.php'">リストへ戻る</button></div>
+    <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
 </body>
 
 </html>
