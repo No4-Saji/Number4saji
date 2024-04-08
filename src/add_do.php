@@ -47,7 +47,7 @@
   $EditDate = NULL;
 
   $Query = "INSERT INTO todolist2(Title, Doc, NewDate) VALUES (:Title, :Doc, :NewDate)";
-  $Stmt = $Dbh->prepare($Query);
+  $Statement = $Dbh->prepare($Query);
   $Params = array(':Title' => $Title, ':Doc' => $Doc, ':NewDate' => $NewDate);
   $Stmt->execute($Params);
 
