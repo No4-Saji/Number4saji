@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!--編集をするために値をDBから受け取りupdate.phpへ渡す-->
 
 <head>
     <meta charset="utf-8">
@@ -30,47 +31,49 @@
 </head>
 
 <body>
-    <div class="contact-form">
-        <h2>&nbsp;EDIT&nbsp;</h2>
-        <div class=border></div>
-        <h3>
-            <form action="update.php" method="post">
-                <input type="hidden" name="Id" value="<?php if (!empty($Result['Id'])) echo (htmlspecialchars($Result['Id'], ENT_QUOTES, 'UTF-8')); ?>">
-                <p>
-                    <label>&nbsp;Title：</label>
-                    <input type="text" name="Title" size="30" value="<?php if (!empty($Result['Title'])) echo (htmlspecialchars($Result['Title'], ENT_QUOTES, 'UTF-8')); ?>">
-                </p>
-                <p>
-                    <label>&nbsp;Text：</label>
-                    <input type="text" name="Text" size="200" value="<?php if (!empty($Result['Text'])) echo (htmlspecialchars($Result['Text'], ENT_QUOTES, 'UTF-8')); ?>">
-                </p>
-                <input type="submit" value="編集する">
-            </form>
-        </h3>
-    </div>
-
-    <a href="index.php">投稿一覧へ</a>
     <?php
-
+    //DBへの接続
     try {
         $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
         $User = "root";
         $Password = "root";
 
         $Dbh = new PDO($Dsn, $User, $Password);
-
         $Stmt = $Dbh->prepare('SELECT * FROM todolist2 WHERE Id = :Id');
-
         $Stmt->execute(array(':Id' => $_GET["Id"]));
-
         $Result = 0;
-
         $Result = $Stmt->fetch(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
         echo 'エラーが発生しました。:' . $e->getMessage();
     }
 
     ?>
+    <div class="contact-form">
+        <h2>&nbsp;EDIT&nbsp;</h2>
+        <div class=border></div>
+        <h3>
+            <!--フォーム作成・エスケープ処理（htmlspecialchar）-->
+            <form action="update.php" method="post">
+                <input type="hidden" name="Id" value="<?php if (!empty($Result['Id'])) echo (htmlspecialchars($Result['Id'], ENT_QUOTES, 'UTF-8')); ?>">
+                <p>
+                    <label>&nbsp;Message：</label>
+                    <input type="text" name="Mes" size="30" value="<?php if (!empty($Result['Mes'])) echo (htmlspecialchars($Result['Mes'], ENT_QUOTES, 'UTF-8')); ?>">
+                </p>
+                <p>
+                    <label>&nbsp;Title：</label>
+                    <input type="text" name="Title" size="30" value="<?php if (!empty($Result['Title'])) echo (htmlspecialchars($Result['Title'], ENT_QUOTES, 'UTF-8')); ?>">
+                </p>
+                <p>
+                    <label>&nbsp;Text：</label>
+                    <input type="text" name="Doc" size="200" value="<?php if (!empty($Result['Doc'])) echo (htmlspecialchars($Result['Doc'], ENT_QUOTES, 'UTF-8')); ?>">
+                </p>
+                <input type="submit" value="編集する">
+
+            </form>
+        </h3>
+    </div>
+
+    <a href="index.php">投稿一覧へ</a>
 </body>
 
 </html>

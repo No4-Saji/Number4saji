@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--add.phpから送られてきたIDをもとにデータをカラムに挿入する。-->
 
 <body>
     <?php
@@ -15,7 +16,28 @@
     }
     //変数へ格納
     $Title = $_POST['Title'];
+    //バリデーション処理
+    $TitleError = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $Title);
+
     $Doc = $_POST['Doc'];
+    //バリデーション処理
+    $DocError = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $Doc);
+    ?>
+
+    <!--文字数制限を設ける-->
+    <?php
+    //Errorの場合0　
+    if ($TitleError == 0 || $DocError == 0) {
+        echo '文字数はタイトルが20字・内容が200字までです。';
+    ?>
+        <div class=bc><button onclick="location.href='index.php'">リストへ戻る</button></div>
+    <?php
+        exit();
+    }
+    ?>
+
+    <?php
+    //データをカラムへ挿入
     $NewDate = date("Y-m-d H:i:s");
     $EditDate = NULL;
 
