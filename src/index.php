@@ -81,23 +81,24 @@ ob_end_flush();
     $Stmt = $Dbh->query($Query);
     ?>
     <!--テーブルの表示-->
-    <table>
-        <thead>
-            <tr>
-                <th>番号</th>
-                <th>タイトル</th>
-                <th>内容</th>
-                <th>作成日</th>
-                <th>更新日</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
-            <?php
-            while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
-            ?>
-                <form action='delete.php' method='post'>
+    <form action='delete.php' method='post'>
+        <table>
+            <thead>
+                <tr>
+                    <th>番号</th>
+                    <th>タイトル</th>
+                    <th>内容</th>
+                    <th>作成日</th>
+                    <th>更新日</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
+                <?php
+                while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+
                     <tr>
                         <td><?php echo $Result['Id'] ?></td>
                         <?php
@@ -114,13 +115,15 @@ ob_end_flush();
                             <button type='submit' name='edit'><a href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a></button>
                             <button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button>
                         </td>
-                </form>
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+
+                    </tr>
+
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </form>
 </body>
 
 </html>
