@@ -81,49 +81,49 @@ ob_end_flush();
     $Stmt = $Dbh->query($Query);
     ?>
     <!--テーブルの表示-->
-    <form action='delete.php' method='post'>
-        <table>
-            <thead>
+    <table>
+        <thead>
+            <tr>
+                <th>番号</th>
+                <th>タイトル</th>
+                <th>内容</th>
+                <th>作成日</th>
+                <th>更新日</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
+            <?php
+            while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+
                 <tr>
-                    <th>番号</th>
-                    <th>タイトル</th>
-                    <th>内容</th>
-                    <th>作成日</th>
-                    <th>更新日</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
-                <?php
-                while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
-                ?>
+                    <td><?php echo $Result['Id'] ?></td>
+                    <?php
+                    $Title = $Result['Title'];
 
-                    <tr>
-                        <td><?php echo $Result['Id'] ?></td>
-                        <?php
-                        $Title = $Result['Title'];
+                    $Doc = $Result['Doc'];
+                    ?>
+                    <td width='20%'><?php echo htmlspecialchars($Title, ENT_QUOTES, 'UTF-8') ?></td>
+                    <td width='60%'><?php echo htmlspecialchars($Doc, ENT_QUOTES, 'UTF-8') ?></td>
+                    <td><?php echo $Result['NewDate'] ?></td>
+                    <td><?php echo $Result['EditDate'] ?></td>
 
-                        $Doc = $Result['Doc'];
-                        ?>
-                        <td width='20%'><?php echo htmlspecialchars($Title, ENT_QUOTES, 'UTF-8') ?></td>
-                        <td width='60%'><?php echo htmlspecialchars($Doc, ENT_QUOTES, 'UTF-8') ?></td>
-                        <td><?php echo $Result['NewDate'] ?></td>
-                        <td><?php echo $Result['EditDate'] ?></td>
-
-                        <td>
+                    <td>
+                        <form action='delete.php' method='post'>
                             <button type='submit' name='edit'><a href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a></button>
                             <button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button>
-                        </td>
+                        </form>
+                    </td>
 
-                    </tr>
+                </tr>
 
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-    </form>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
