@@ -30,7 +30,7 @@
     if ($TitleError == 0 || $DocError == 0) {
         echo '文字数はタイトルが20字・内容が200字までです。';
     ?>
-        <div class=bc><button onclick="location.href='index.php'">リストへ戻る</button></div>
+        <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
     <?php
         exit();
     }
@@ -48,5 +48,5 @@
 
     echo "データの追加が完了しました。";
     ?>
-    <div class=bc><button onclick="location.href='index.php'">リストへ戻る</button></div>
+    <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
 </body>

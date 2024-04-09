@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!--編集をするために値をDBから受け取りupdate.phpへ渡す-->
+<!--編集をするために値をDBから受け取りedit_do.phpへ渡す-->
 
 <head>
     <meta charset="utf-8">
@@ -53,7 +53,7 @@
         <div class=border></div>
         <h3>
             <!--フォーム作成・エスケープ処理（htmlspecialchar）-->
-            <form action="update.php" method="post">
+            <form action="edit_do.php" method="post">
                 <input type="hidden" name="Id" value="<?php if (!empty($Result['Id'])) echo (htmlspecialchars($Result['Id'], ENT_QUOTES, 'UTF-8')); ?>">
                 <p>
                     <label>&nbsp;Message：</label>
@@ -73,7 +73,7 @@
         </h3>
     </div>
 
-    <a href="index.php">投稿一覧へ</a>
+    <a href="todolist.php">投稿一覧へ</a>
 </body>
 
 </html>
