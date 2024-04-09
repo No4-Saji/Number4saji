@@ -77,8 +77,8 @@ ob_end_flush();
     </form>
     <?php
     //対象のテーブルを変数に格納
-    $Sql = "SELECT * FROM todolist2";
-    $Stmt = $Dbh->query($Sql);
+    $Query = "SELECT * FROM todolist2";
+    $Stmt = $Dbh->query($Query);
     ?>
     <!--テーブルの表示-->
     <table>
@@ -97,25 +97,24 @@ ob_end_flush();
             <?php
             while ($Result = $Stmt->fetch(PDO::FETCH_ASSOC)) {
             ?>
-                <tr>
-                    <td><?php echo $Result['Id'] ?></td>
-                    <?php
-                    $Title = $Result['Title'];
+                <form action='delete.php' method='post'>
+                    <tr>
+                        <td><?php echo $Result['Id'] ?></td>
+                        <?php
+                        $Title = $Result['Title'];
 
-                    $Doc = $Result['Doc'];
-                    ?>
-                    <td width='20%'><?php echo htmlspecialchars($Title, ENT_QUOTES, 'UTF-8') ?></td>
-                    <t>
+                        $Doc = $Result['Doc'];
+                        ?>
+                        <td width='20%'><?php echo htmlspecialchars($Title, ENT_QUOTES, 'UTF-8') ?></td>
                         <td width='60%'><?php echo htmlspecialchars($Doc, ENT_QUOTES, 'UTF-8') ?></td>
-                    </t>
-                    <td><?php echo $Result['NewDate'] ?></td>
-                    <td><?php echo $Result['EditDate'] ?></td>
-                    <form action='delete.php' method='post'>
+                        <td><?php echo $Result['NewDate'] ?></td>
+                        <td><?php echo $Result['EditDate'] ?></td>
+
                         <td>
                             <button type='submit' name='edit'><a href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a></button>
                             <button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button>
                         </td>
-                    </form>
+                </form>
                 </tr>
             <?php
             }
