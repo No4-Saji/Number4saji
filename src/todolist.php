@@ -72,7 +72,7 @@ ob_end_flush();
     <p>TODOLIST</p>
     <div class=border></div>
     <!--追加ボタン-->
-    <form action='index.php' method='post'>
+    <form action='todolist.php' method='post'>
         <button type='submit' name='add'>追加</button>
     </form>
     <?php

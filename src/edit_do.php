@@ -9,7 +9,7 @@
 
 <body>
   <p>
-    <a href="index.php">投稿一覧へ</a>
+    <a href="todolist.php">投稿一覧へ</a>
   </p>
   <?php
   try {

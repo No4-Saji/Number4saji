@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!--削除の確認をし、する場合押されたボタンの行のIDをdelconp.phpに渡す。-->
+<!--削除の確認をし、する場合押されたボタンの行のIDをdelete_do.phpに渡す。-->
 
 <head>
   <meta charset="utf-8">
@@ -14,9 +14,9 @@
   echo "本当に削除しますか？"
   ?>
   <br>
-  <button type='submit' name='delete'><a href="delconp.php?Id=<?php echo $Id ?>">はい</a></button>
+  <button type='submit' name='delete'><a href="delete_do.php?Id=<?php echo $Id ?>">はい</a></button>
   </br>
-  <div class=bc><button onclick="location.href='index.php'">いいえ</button></div>
+  <div class=bc><button onclick="location.href='todolist.php'">いいえ</button></div>
 </body>
 
 </html>
