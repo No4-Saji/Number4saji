@@ -9,13 +9,11 @@
 
 <body>
     <?php
-    //DBへ接続し、削除する。
-    try {
-        $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
-        $User = "root";
-        $Password = "root";
+    // //DBへ接続する。
+    require('dbconnect.php');
 
-        $Dbh = new PDO($Dsn, $User, $Password);
+    //DB削除
+    try {
         $Stmt = $Dbh->prepare('DELETE FROM todolist2 WHERE Id = :Id');
         $Stmt->execute(array(':Id' => $_GET["Id"]));
         echo "削除しました。";

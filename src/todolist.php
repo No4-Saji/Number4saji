@@ -57,16 +57,7 @@ ob_end_flush();
 
 <body>
     <?php
-    $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
-    $User = "root";
-    $Password = "root";
-    //DBへの接続
-    try {
-        $Dbh = new PDO($Dsn, $User, $Password);
-    } catch (PDOException $Error) {
-        echo "接続失敗:" . $Error->getMessage();
-        die();
-    }
+    require('dbconnect.php');
     ?>
     <!--タイトル-->
     <p>TODOLIST</p>

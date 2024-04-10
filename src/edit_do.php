@@ -13,19 +13,15 @@
   </p>
   <?php
   try {
-    //DBの接続情報
-    $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
-    $User = "root";
-    $Password = "root";
-
     //カラムの変数への格納
     $Title = $_POST['Title'];
     $Doc = $_POST['Doc'];
     $Mes = $_POST['Mes'];
     $EditDate = date("Y-m-d H:i:s");
 
-    //DBへの値の格納
-    $Dbh = new PDO($Dsn, $User, $Password);
+    //DB接続
+    require('dbconnect.php');
+
     //SQLインジェクション対策（バインドバリュー）
     $Stmt = $Dbh->prepare('UPDATE todolist2 SET Mes = :Mes, Title = :Title, Doc = :Doc, EditDate = :EditDate WHERE Id = :Id');
     $Stmt->execute(array(':Mes' => $Mes, ':Title' => $Title, ':Doc' => $Doc, ':Id' => $_POST['Id'], ':EditDate' => $EditDate));

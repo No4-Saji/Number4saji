@@ -32,13 +32,12 @@
 
 <body>
     <?php
-    //DBへの接続
-    try {
-        $Dsn = "mysql:dbname=ToDoListSystem2;port=3306;host=host.docker.internal";
-        $User = "root";
-        $Password = "root";
 
-        $Dbh = new PDO($Dsn, $User, $Password);
+    //DBへの接続
+    require('dbconnect.php');
+
+    //DBから値を取得
+    try {
         $Stmt = $Dbh->prepare('SELECT * FROM todolist2 WHERE Id = :Id');
         $Stmt->execute(array(':Id' => $_GET["Id"]));
         $Result = 0;
