@@ -5,9 +5,25 @@
 <head>
   <meta charset="utf-8">
   <title>削除確認</title>
+  <style>
+    div.p1 {
+      font-size: 40px;
+      font-weight: 600;
+      font-family: Century;
+      color: seagreen;
+    }
+
+    div.border {
+      border: 5px solid;
+      border-color: seagreen transparent transparent transparent;
+      padding: 10px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class=p1>DELETE</div>
+  <div class=border></div>
   <?php
   //なぜかPOSTメソッドが反応しなかったため、GETでの値の引き渡し。
   $Id = $_GET['Id'];

@@ -7,12 +7,12 @@
   <title></title>
   <style>
     form {
-      background: #f8b500;
+      background: gray;
     }
 
     div.border {
       border: 5px solid;
-      border-color: #000 transparent transparent transparent;
+      border-color: seagreen transparent transparent transparent;
       padding: 2px;
     }
 

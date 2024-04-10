@@ -6,6 +6,13 @@
     <meta charset="utf-8">
     <title>EDIT</title>
     <style>
+        div.p1 {
+            font-size: 40px;
+            font-weight: 600;
+            font-family: Century;
+            color: seagreen;
+        }
+
         h2 {
             font-size: 40px;
             font-weight: 600;
@@ -15,7 +22,7 @@
 
         div.border {
             border: 5px solid;
-            border-color: #000 transparent transparent transparent;
+            border-color: seagreen transparent transparent transparent;
             padding: 2px;
         }
 
@@ -25,7 +32,7 @@
         }
 
         h3 {
-            background: #f8b500;
+            background: gray;
         }
     </style>
 </head>
