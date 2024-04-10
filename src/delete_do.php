@@ -23,7 +23,7 @@
         echo 'エラーが発生しました。:' . $e->getMessage();
     }
     ?>
-    <div class=bc><button onclick="location.href='index.php'">リストへ戻る</button></div>
+    <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
 </body>
 
 </html>
