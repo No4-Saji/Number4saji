@@ -1,12 +1,3 @@
-<?php
-//headerの定義
-ob_start();
-if (isset($_POST['add'])) {
-  header('Location: http://localhost/add.php');
-  exit();
-}
-ob_end_flush();
-?>
 <!DOCTYPE HTML>
 <html>
 
