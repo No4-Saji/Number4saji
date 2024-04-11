@@ -21,6 +21,8 @@
 
     //DB接続
     require('dbconnect.php');
+    $ClassDB = new DBconnect();
+    $Dbh = $ClassDB->connect();
 
     //SQLインジェクション対策（バインドバリュー）
     $Stmt = $Dbh->prepare('UPDATE todolist2 SET Mes = :Mes, Title = :Title, Doc = :Doc, EditDate = :EditDate WHERE Id = :Id');

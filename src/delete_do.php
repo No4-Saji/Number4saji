@@ -11,6 +11,8 @@
   <?php
   // //DBへ接続する。
   require('dbconnect.php');
+  $ClassDB = new DBconnect();
+  $Dbh = $ClassDB->connect();
 
   //DB削除
   try {

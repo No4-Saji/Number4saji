@@ -4,7 +4,8 @@
 <body>
   <?php
   require('dbconnect.php');
-
+  $ClassDB = new DBconnect();
+  $Dbh = $ClassDB->connect();
   //文字数制限を設ける
 
   //変数へ格納

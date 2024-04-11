@@ -35,6 +35,8 @@
 
   //DBへの接続
   require('dbconnect.php');
+  $ClassDB = new DBconnect();
+  $Dbh = $ClassDB->connect();
 
   //DBから値を取得
   try {

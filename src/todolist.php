@@ -58,12 +58,14 @@ ob_end_flush();
 <body>
   <?php
   require('dbconnect.php');
+  $ClassDB = new DBconnect();
+  $Dbh = $ClassDB->connect();
   ?>
   <!--タイトル-->
   <p>TODOLIST</p>
   <div class=border></div>
   <!--追加ボタン-->
-  <form action='todolist.php' method='post'>
+  <form action='add.php' method='post'>
     <button type='submit' name='add'>追加</button>
   </form>
   <?php
