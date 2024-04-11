@@ -1,12 +1,3 @@
-<?php
-//headerの定義
-ob_start();
-if (isset($_POST['add'])) {
-  header('Location: http://localhost/add.php');
-  exit();
-}
-ob_end_flush();
-?>
 <!DOCTYPE HTML>
 <html>
 
@@ -14,11 +5,31 @@ ob_end_flush();
   <meta charset="UTF-8">
   <title>ToDoList</title>
   <style>
-    p {
+    .p1 {
       font-size: 40px;
       font-weight: 600;
       font-family: Century;
       color: seagreen;
+    }
+
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
     }
 
     table,
@@ -62,12 +73,10 @@ ob_end_flush();
   $Dbh = $ClassDB->connect();
   ?>
   <!--タイトル-->
-  <p>TODOLIST</p>
-  <div class=border></div>
+  <div class="p1">TODOLIST</div>
+  <div class="border"></div>
   <!--追加ボタン-->
-  <form action='add.php' method='post'>
-    <button type='submit' name='add'>追加</button>
-  </form>
+  <a class="button" href="./add.php">追加</a>
   <?php
   //対象のテーブルを変数に格納
   $Query = "SELECT * FROM todolist2";
@@ -75,6 +84,7 @@ ob_end_flush();
   ?>
   <!--テーブルの表示-->
   <table>
+    <br>
     <thead>
       <tr>
         <th>番号</th>
@@ -85,6 +95,7 @@ ob_end_flush();
         <th></th>
       </tr>
     </thead>
+    </br>
     <tbody>
       <!--FETCH＿ASSOC：カラムを１行取得する。値を取得した後はこの関数をコールするたびに次のカラムの値を返す。カラムがなくなるとNULLを返す。-->
       <?php
@@ -105,8 +116,8 @@ ob_end_flush();
 
           <td>
             <form action='delete.php' method='post'>
-              <button type='submit' name='edit'><a href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a></button>
-              <button type='submit' name='delete'><a href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a></button>
+              <a class="button" href="edit.php?Id= <?php echo $Result["Id"] ?>">編集</a>
+              <a class="button" href="delete.php?Id= <?php echo $Result["Id"] ?>">削除</a>
             </form>
           </td>
 
