@@ -5,6 +5,27 @@
 <head>
   <meta charset="utf-8">
   <title>削除完了</title>
+  <style>
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,7 +44,7 @@
     echo 'エラーが発生しました。:' . $e->getMessage();
   }
   ?>
-  <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
+  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
 </body>
 
 </html>

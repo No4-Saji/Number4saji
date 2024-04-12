@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>追加フォーム</title>
   <style>
     form {
       background: gray;
@@ -27,6 +27,26 @@
       font-weight: 600;
       color: white;
     }
+
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -42,7 +62,7 @@
     <p><button type="submit" name="add">追加</button></p>
   </form>
 
-  <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
+  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
 </body>
 
 </html>
