@@ -18,6 +18,26 @@
       border-color: seagreen transparent transparent transparent;
       padding: 10px;
     }
+
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -32,7 +52,9 @@
   <br>
   <button type='submit' name='delete'><a href="delete_do.php?Id=<?php echo $Id ?>">はい</a></button>
   </br>
-  <div class=bc><button onclick="location.href='todolist.php'">いいえ</button></div>
+  <br>
+  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
+  </br>
 </body>
 
 </html>

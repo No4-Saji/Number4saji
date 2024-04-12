@@ -27,6 +27,26 @@
     h3 {
       background: gray;
     }
+
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -74,7 +94,7 @@
     </h3>
   </div>
 
-  <a href="todolist.php">投稿一覧へ</a>
+  <a class=button href="todolist.php">投稿一覧へ</a>
 </body>
 
 </html>

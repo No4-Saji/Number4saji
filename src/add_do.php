@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <!--add.phpから送られてきたIDをもとにデータをカラムに挿入する。-->
 
+<head>
+  <style>
+    .button {
+      display: inline-block;
+      border-radius: 5%;
+      font-size: 10pt;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 10px;
+      background: #999999;
+      color: #ffffff;
+      line-height: 1em;
+      opacity: 1;
+      transition: .3s;
+
+    }
+
+    .button:hover {
+      box-shadow: none;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+
 <body>
   <?php
   require('dbconnect.php');
@@ -37,5 +61,5 @@
 
   echo "データの追加が完了しました。";
   ?>
-  <div class=bc><button onclick="location.href='todolist.php'">リストへ戻る</button></div>
+  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
 </body>
