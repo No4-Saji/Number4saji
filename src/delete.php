@@ -1,10 +1,8 @@
 <?php
-//なぜかPOSTメソッドが反応しなかったため、GETでの値の引き渡し。
 $id = $_GET['Id'];
 ?>
 <!DOCTYPE html>
 <html>
-<!--削除の確認をし、する場合押されたボタンの行のIDをdelete_do.phpに渡す。-->
 
 <head>
   <meta charset="utf-8">
@@ -12,15 +10,20 @@ $id = $_GET['Id'];
   <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 
-<body>
-  <div class=p1>DELETE</div>
-  <div class=border></div>
+<body style="background-color:#fff3b8">
+  <header class="t-header">
+    <div class="i-header">
+      <p class="c-logo">
+        <a href="index.php">DELETE</a>
+      <p class="c-logo-description">リストの削除</p>
+    </div>
+  </header>
   <br>
-  <p>本当に削除しますか？</p>
-  <button type='submit' name='delete'><a href="delete_do.php?Id=<?php echo $id ?>">はい</a></button>
+  <p class="delete">本当に削除しますか？</p>
+  <a class="button" href="delete_do.php?Id=<?php echo $id ?>">はい</a>
   </br>
   <br>
-  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
+  <div class=bc><a class="button" href="./index.php">いいえ</a></div>
   </br>
 </body>
 

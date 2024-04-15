@@ -1,17 +1,11 @@
 <?php
 // DBへ接続する。
-require('./private/dbconnect.php');
-$dbConnector = new Db();
-$dbh = $dbConnector->connect();
+require('private/todolist2Dao.php');
+$id = $_GET["Id"];
+$todolist2Dao = new todolist2Dao();
+$todolist2Dao->delete($id);
 
-// DB削除
-try {
-  $stmt = $dbh->prepare('DELETE FROM todolist2 WHERE Id = :Id');
-  $stmt->execute(array(':Id' => $_GET["Id"]));
-  echo "削除しました。";
-} catch (Exception $e) {
-  echo 'エラーが発生しました。:' . $e->getMessage();
-}
+echo "削除しました。";
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +17,8 @@ try {
   <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 
-<body>
-  <div class=bc><a class="button" href="./todolist.php">リストへ</a></div>
+<body style="background-color:#fff3b8">
+  <div class=bc><a class="button" href="./index.php">リストへ</a></div>
 </body>
 
 </html>

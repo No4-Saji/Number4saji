@@ -10,9 +10,14 @@
 
 <!--フォーム入力-->
 
-<body>
-  <div class="p1"> &nbsp;ADD &nbsp;</div>
-  <div class="border"></div>
+<body style="background-color:#fff3b8">
+  <header class="t-header">
+    <div class="i-header">
+      <p class="c-logo">
+        <a href="index.php">ADD</a>
+      <p class="c-logo-description">リストの追加</p>
+    </div>
+  </header>
   <h3>
     <form method="post" action="add_do.php">
       <p> &nbsp;タイトル：&nbsp;&nbsp;<input type="text" name="Title" size="20" required></input></p>
@@ -22,7 +27,7 @@
   </h3>
   </form>
 
-  <div class="bc"><a class="button" href="./todolist.php">リストへ</a></div>
+  <div class="bc"><a class="button" href="./index.php">リストへ</a></div>
 </body>
 
 </html>

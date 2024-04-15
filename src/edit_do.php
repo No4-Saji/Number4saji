@@ -1,24 +1,17 @@
 <?php
-try {
-  //カラムの変数への格納
-  $title = $_POST['Title'];
-  $mes = $_POST['Mes'];
-  $document = $_POST['Doc'];
-  $editDate = date("Y-m-d H:i:s");
+require('private/todolist2Dao.php');
+//　パラメータを各変数に格納
+$title = $_POST['Title'];
+$mes = $_POST['Mes'];
+$document = $_POST['Doc'];
+$editDate = date("Y-m-d H:i:s");
+$id = $_GET["Id"];
 
-  //DB接続
-  require('./private/dbconnect.php');
-  $dbConnector = new Db();
-  $dbh = $dbConnector->connect();
+//　編集するクラス関数呼び出し
+$todolist2Dao = new todolist2Dao();
+$todolist2Dao->edit($mes, $title, $document, $editDate);
 
-  //SQLインジェクション対策（バインドバリュー）
-  $stmt = $dbh->prepare('UPDATE todolist2 SET mes = :mes, title = :title, doc = :doc, editDate = :editDate WHERE Id = :Id');
-  $stmt->execute(array(':mes' => $mes, ':title' => $title, ':doc' => $document, ':Id' => $_POST['Id'], ':editDate' => $editDate));
-
-  echo "情報を更新しました。";
-} catch (Exception $e) {
-  echo 'エラーが発生しました。:' . $e->getMessage();
-}
+echo "情報を更新しました。";
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,9 +22,9 @@ try {
   <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 
-<body>
+<body style="background-color:#fff3b8">
   <p>
-    <a class=button href="todolist.php">投稿一覧へ</a>
+    <a class=button href="index.php">投稿一覧へ</a>
   </p>
 </body>
 
