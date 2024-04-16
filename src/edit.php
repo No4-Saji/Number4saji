@@ -27,18 +27,18 @@ $todo = $todoList2Dao->findById($id);
     <h3>
       <!--フォーム作成・エスケープ処理（htmlspecialchar）-->
       <form action="edit_do.php" method="post">
-        <input type="hidden" name="Id" value="<?php echo (htmlspecialchars($todolist["Id"], ENT_QUOTES, 'UTF-8')); ?>">
+        <input type="hidden" name="Id" value="<?php echo (htmlspecialchars($todo["Id"], ENT_QUOTES, 'UTF-8')); ?>">
         <p>
           <label>&nbsp;Message：</label>
-          <input type="text" name="Mes" size="30" value="<?php echo (htmlspecialchars($todolist["Mes"], ENT_QUOTES, 'UTF-8')); ?>">
+          <input type="text" name="Mes" size="30" value="<?php echo (htmlspecialchars($todo["Mes"], ENT_QUOTES, 'UTF-8')); ?>">
         </p>
         <p>
           <label>&nbsp;Title：</label>
-          <input type="text" name="Title" size="30" value="<?php echo (htmlspecialchars($todolist["Title"], ENT_QUOTES, 'UTF-8')); ?>">
+          <input type="text" name="Title" size="30" value="<?php echo (htmlspecialchars($todo["Title"], ENT_QUOTES, 'UTF-8')); ?>">
         </p>
         <p>
           <label>&nbsp;Text：</label>
-          <input type="text" name="Doc" size="200" value="<?php echo (htmlspecialchars($todolist["Doc"], ENT_QUOTES, 'UTF-8')); ?>">
+          <input type="text" name="Doc" size="200" value="<?php echo (htmlspecialchars($todo["Doc"], ENT_QUOTES, 'UTF-8')); ?>">
         </p>
         <input type="submit" value="編集する">
 

@@ -5,20 +5,20 @@ require("private/ToDoList2Dao.php");
 $todoList2Dao = new ToDoList2Dao();
 $todolist = $todoList2Dao->findAll();
 ?>
-<header class="t-header">
-  <div class="i-header">
-    <p class="c-logo">
-      <a href="index.php">TODOLIST</a>
-    <p class="c-logo-description">リストの表示</p>
-  </div>
-</header>
-<br>
-<a class="button" href="./add.php">追加</a>
-</br>
 <!DOCTYPE HTML>
 <html>
 
 <head>
+  <header class="t-header">
+    <div class="i-header">
+      <p class="c-logo">
+        <a href="index.php">TODOLIST</a>
+      <p class="c-logo-description">リストの表示</p>
+    </div>
+  </header>
+  <br>
+  <a class="button" href="./add.php">追加</a>
+  </br>
   <meta charset="UTF-8">
   <title>ToDoList</title>
   <link rel="stylesheet" href="./style.css" type="text/css">
