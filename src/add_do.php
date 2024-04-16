@@ -5,16 +5,16 @@ require('private/ToDoList2Dao.php');
 
 // 変数へ格納
 $title = $_POST['Title'];
-// バリデーション処理
-$titleResaltOfPregMatch = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $title);
+// バリデーション処理　preg_matchは当てはめた変数が条件外の場合0を返す
+$titleResultOfPregMatch = preg_match('/\A[[:^cntrl:]]{1,20}+\z/u', $title);
 $document = $_POST['Doc'];
 // バリデーション処理
-$documentResaltOfPregMatch = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $document);
+$documentResultOfPregMatch = preg_match('/\A[[:^cntrl:]]{1,200}+\z/u', $document);
 
 //データをカラムへ挿入
 $newDate = date("Y-m-d H:i:s");
 $editDate = null;
-if ($titleResaltOfPregMatch == 1 && $documentResaltOfPregMatch == 1) {
+if ($titleResultOfPregMatch == 1 && $documentResultOfPregMatch == 1) {
   $todoList2Dao = new ToDoList2Dao();
   $todoList2Dao->insert($title, $document, $newDate);
   echo 'データの追加が完了しました。';
@@ -30,7 +30,7 @@ if ($titleResaltOfPregMatch == 1 && $documentResaltOfPregMatch == 1) {
 
 <body style="background-color:#fff3b8">
   <?php
-  if ($titleResaltOfPregMatch == 0 || $documentResaltOfPregMatch == 0) {
+  if ($titleResultOfPregMatch == 0 || $documentResultOfPregMatch == 0) {
     echo '文字数はタイトルが20字・内容が200字までです。';
   ?>
     <div class="bc"><a class="button" href="./index.php">リストへ</a></div>
