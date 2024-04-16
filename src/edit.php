@@ -2,7 +2,7 @@
 
 require('private/ToDoList2Dao.php');
 $id = $_GET["Id"];
-$ToDoList2Dao = new ToDoList2Dao();
+$todoList2Dao = new ToDoList2Dao();
 $todo = $todoList2Dao->findById($id);
 
 ?>

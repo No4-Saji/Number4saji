@@ -2,8 +2,8 @@
 // DBへ接続する。
 require('private/ToDoList2Dao.php');
 $id = $_GET["Id"];
-$ToDoList2Dao = new ToDoList2Dao();
-$ToDoList2Dao->delete($id);
+$todoList2Dao = new ToDoList2Dao();
+$todoList2Dao->delete($id);
 
 echo "削除しました。";
 ?>

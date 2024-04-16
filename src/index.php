@@ -2,8 +2,8 @@
 
 //　カラムの全探索
 require("private/ToDoList2Dao.php");
-$ToDoList2Dao = new ToDoList2Dao();
-$todolist = $ToDoList2Dao->findAll();
+$todoList2Dao = new ToDoList2Dao();
+$todolist = $todoList2Dao->findAll();
 ?>
 <header class="t-header">
   <div class="i-header">

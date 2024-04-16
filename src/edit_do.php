@@ -8,8 +8,8 @@ $editDate = date("Y-m-d H:i:s");
 $id = $_GET["Id"];
 
 //　編集するクラス関数呼び出し
-$ToDoList2Dao = new ToDoList2Dao();
-$ToDoList2Dao->edit($mes, $title, $document, $editDate);
+$todoList2Dao = new ToDoList2Dao();
+$todoList2Dao->edit($mes, $title, $document, $editDate);
 
 echo "情報を更新しました。";
 ?>

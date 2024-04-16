@@ -25,8 +25,8 @@ if ($titleValidation == 0 || $documentValidation == 0) {
 $newDate = date("Y-m-d H:i:s");
 $editDate = null;
 if ($titleValidation == 1 && $documentValidation == 1) {
-  $ToDoList2Dao = new ToDoList2Dao();
-  $ToDoList2Dao->insert($title, $document, $newDate);
+  $todoList2Dao = new ToDoList2Dao();
+  $todoList2Dao->insert($title, $document, $newDate);
   echo 'データの追加が完了しました。';
 }
 ?>
