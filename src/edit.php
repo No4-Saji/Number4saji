@@ -1,9 +1,9 @@
 <?php
 
-require('private/todolist2Dao.php');
+require('private/ToDoList2Dao.php');
 $id = $_GET["Id"];
-$todolist2Dao = new todolist2Dao();
-$todolist = $todolist2Dao->findById($id);
+$ToDoList2Dao = new ToDoList2Dao();
+$todo = $todoList2Dao->findById($id);
 
 ?>
 <!DOCTYPE html>

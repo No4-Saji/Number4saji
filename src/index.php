@@ -1,9 +1,9 @@
 <?php
 
 //　カラムの全探索
-require("private/todolist2Dao.php");
-$todolist2Dao = new todolist2Dao();
-$todolist = $todolist2Dao->findAll();
+require("private/ToDoList2Dao.php");
+$ToDoList2Dao = new ToDoList2Dao();
+$todolist = $ToDoList2Dao->findAll();
 ?>
 <header class="t-header">
   <div class="i-header">

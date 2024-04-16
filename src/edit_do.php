@@ -1,5 +1,5 @@
 <?php
-require('private/todolist2Dao.php');
+require('private/ToDoList2Dao.php');
 //　パラメータを各変数に格納
 $title = $_POST['Title'];
 $mes = $_POST['Mes'];
@@ -8,8 +8,8 @@ $editDate = date("Y-m-d H:i:s");
 $id = $_GET["Id"];
 
 //　編集するクラス関数呼び出し
-$todolist2Dao = new todolist2Dao();
-$todolist2Dao->edit($mes, $title, $document, $editDate);
+$ToDoList2Dao = new ToDoList2Dao();
+$ToDoList2Dao->edit($mes, $title, $document, $editDate);
 
 echo "情報を更新しました。";
 ?>

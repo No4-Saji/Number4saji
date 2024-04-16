@@ -1,9 +1,9 @@
 <?php
 // DBへ接続する。
-require('private/todolist2Dao.php');
+require('private/ToDoList2Dao.php');
 $id = $_GET["Id"];
-$todolist2Dao = new todolist2Dao();
-$todolist2Dao->delete($id);
+$ToDoList2Dao = new ToDoList2Dao();
+$ToDoList2Dao->delete($id);
 
 echo "削除しました。";
 ?>
