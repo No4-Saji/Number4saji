@@ -2,7 +2,10 @@
 　プロトタイプ宣言
 */
 :root {
-  --text-color: white;
+  --text-color-table: white;
+  --text-color-header: white;
+  --background-color-buttonandform: #96514d;
+  --background-color-theader: #96514d;
 }
 
 /*
@@ -15,9 +18,8 @@
   text-align: center;
   cursor: pointer;
   padding: 10px;
-  background: #96514d;
-  color: var(--text-color);
-  line-height: 1em;
+  background-color: var(--background-color-buttonandform);
+  color: var(--text-color-table);
   opacity: 1;
 }
 
@@ -32,12 +34,11 @@ header {
 }
 .t-header {
   position: relative;
-  padding: 1.5rem 1rem 0.5rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0.5rem 2rem;
-  background: #e3b900;
+  background-color: #e3b900;
 }
 .i-header {
   display: flex;
@@ -61,17 +62,16 @@ p {
   unicode-bidi: isolate;
 }
 .c-logo a {
-  color: var(--text-color);
+  color: var(--text-color-header);
   font-weight: 700;
   font-size: 1.5rem;
-  line-height: 1;
   letter-spacing: 2px;
   vertical-align: middle;
 }
 .c-logo-description {
   display: inline;
   margin-left: 1rem;
-  color: var(--text-color);
+  color: var(--text-color-header);
   font-size: 0.75rem;
 }
 
@@ -93,15 +93,15 @@ th {
 
 td {
   font-size: 15px;
-  background: white;
+  background-color: white;
   text-align: center;
   color: dimgray;
 }
 
 th {
   font-family: Georgia;
-  color: var(--text-color);
-  background: #96514d;
+  color: var(--text-color-table);
+  background-color: var(--background-color-theader);
 }
 
 /*
@@ -109,8 +109,8 @@ th {
 */
 
 h3 {
-  background-color: #96514d;
-  color: var(--text-color);
+  background-color: var(--background-color-buttonandform);
+  color: var(--text-color-header);
 }
 
 /*
